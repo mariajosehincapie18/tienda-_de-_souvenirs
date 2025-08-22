@@ -1,0 +1,19 @@
+1,Imán Medellí,artesan, 250
+
+2,Sombrero Vueltiado,ropa,900
+
+3,Botella Guaté,accesorio,450
+
+4,Camiseta Colombia,ropa,800
+
+5,Bolso,Wayuu Catrtesanía,1000
+
+6,Llaveros de cafetera,accesorio,300
+
+7,Taza cafetera,souvenir,600
+
+8,Collar artesal,artesanía,700
+
+9,Ruana boyacence,ropa,950
+
+10,Miniatura chiva,souvenir, 500
