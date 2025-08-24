@@ -27,10 +27,6 @@ print(filtro_rango)
 
 
 reco = op.recomendaciones(pro.productos,"pin",)
-print(reco)
+print("recomendaciones: ",reco)
 
 
-seleccionado = op.busqueda_binaria_por_nombre(pro.productos, "pin")
-if seleccionado:
-    sugerencia = op.recomendaciones(pro.productos,seleccionado)
-    print(sugerencia)

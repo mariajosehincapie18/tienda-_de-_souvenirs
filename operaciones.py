@@ -66,17 +66,25 @@ class Operaciones():
         return self.busqueda_por_rango_de_precios( productos, minimo,maximo, index +1, resultado)
     
 
-    def recomendaciones(self, productos, producto_seleccionado, index =0, recomendaciones = None):
+    def recomendaciones(self, productos,nombre_producto,index = 0,   producto_seleccionado = None, recomendaciones = None):
         if recomendaciones is None:
             recomendaciones = []
+
+        if producto_seleccionado is None:
+            coincidencias = self.busqueda_binaria_por_nombre(productos, nombre_producto)
+            if not coincidencias:
+                return []
+            producto_seleccionado = coincidencias[0]
 
         if index == len(productos):
             return recomendaciones
         
-        if productos[index].categoria.lower() == producto_seleccionado.categoria.lower() and productos[index] != producto_seleccionado:
+        
+        
+        if productos[index].categoria.lower() == producto_seleccionado.categoria.lower():
             recomendaciones.append(productos[index])
 
-        return self.recomendaciones(productos,producto_seleccionado, index +1, recomendaciones)
+        return self.recomendaciones(productos,nombre_producto,index +1,  producto_seleccionado, recomendaciones)
 
         
         
