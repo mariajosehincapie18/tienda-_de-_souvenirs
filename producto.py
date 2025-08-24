@@ -7,11 +7,12 @@ class Producto:
 
     def __str__(self):
         return f"Código: {self.codigo}, Nombre: {self.nombre}, Categoría: {self.categoria}, Precio: {self.precio}"
+    
+    def __repr__(self):
+        return str(self)
 
-        
 
-
-class Productos :
+class GestorProductos :
     def __init__(self):
         self.productos = []
 
@@ -20,8 +21,40 @@ class Productos :
         self.productos.append(nuevo_producto)
         return
     
-    def agregar_productos_desde_archivo(ruta_archivo):
-        pass
+    def precargar_productos_desde_txt(self, ruta_archivo):
+        with open(ruta_archivo,"r",encoding="utf-8") as archivo:
+            self.cargar_recursivo(archivo)
+
+        self.ordenar(self.productos, len(self.productos))
+
+    def cargar_recursivo(self, archivo):
+        linea = archivo.readline()
+        if not linea:
+            return
+        linea = linea.strip()
+        if linea:
+            partes= linea.split(",")
+            if len(partes) == 4:
+                codigo, nombre, categoria, precio = partes
+                self.agregar_productos(int(codigo), nombre.strip(), categoria.strip(),int(precio))
+
+        self.cargar_recursivo(archivo)
+
+    def ordenar(self,productos,n):
+        if n <= 1:
+            return
+        self.ordenar(productos, n-1)
+        ultimo = productos[n-1]
+        self.insertar(productos, n-1, ultimo)
+
+    def insertar(self, productos, j, valor):
+        if j <= 0 or productos[j-1].nombre.lower() <= valor.nombre.lower():
+            productos[j] = valor
+            return
+        
+        productos[j] = productos[j-1]
+        self.insertar(productos,j-1,valor)
+    
 
 
     def mostrar_productos(self, index = 0):
@@ -43,9 +76,3 @@ class Productos :
 
 
 
-tienda= Productos()
-tienda.agregar_productos(11,"iman", "artesania", 1000)
-tienda.agregar_productos(1,"botella", "artesania", 500)
-tienda.agregar_productos(2,"iman grande", "artesania", 1700)
-tienda.agregar_productos(0,"iman mini", "artesania", 1050)
-tienda.mostrar_productos()
