@@ -1,6 +1,6 @@
 class Producto:
     def __init__(self, codigo, nombre, categoria, precio):
-        self.codigo:int = codigo
+        self.codigo:str = codigo
         self.nombre:str = nombre
         self.categoria:str = categoria
         self.precio:int = precio
@@ -16,7 +16,7 @@ class GestorProductos :
     def __init__(self):
         self.productos = []
 
-    def agregar_productos(self, codigo:int, nombre:str, categoria:str, precio:str):
+    def agregar_productos(self, codigo:str, nombre:str, categoria:str, precio:str):
         nuevo_producto = Producto(codigo, nombre, categoria, precio)
         self.productos.append(nuevo_producto)
         return
@@ -36,7 +36,7 @@ class GestorProductos :
             partes= linea.split(",")
             if len(partes) == 4:
                 codigo, nombre, categoria, precio = partes
-                self.agregar_productos(int(codigo), nombre.strip(), categoria.strip(),int(precio))
+                self.agregar_productos(codigo.strip(), nombre.strip(), categoria.strip(),int(precio))
 
         self.cargar_recursivo(archivo)
 
