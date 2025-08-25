@@ -5,7 +5,7 @@ from operaciones import Operaciones
 
 class Menu:
     def mostrar_menu(self):
-        print("\n--- BIENVENIDO A COLOMBIA SOUVENIRS ---")
+        print("\n--- 🌍  BIENVENIDO A COLOMBIA SOUVENIRS  🌍 ---")
         print("1️⃣   BUSQUEDA POR NOMBRE")
         print("2️⃣   CALCULO TOTAL DE PRODUCTOS")
         print("3️⃣   CALCULO PROMEDIO POR CATEGORIA ")
@@ -44,12 +44,12 @@ class Menu:
         elif opcion == "4": 
             opcion =input("🔎 Ingresa el orden que quieres tus productos 'menor' o 'mayor':  ")   
             quick = op.Quicksort_precio(pro.productos,opcion.lower())
-            print(quick)    
+            op.imprimir_lista(quick)    
             self.mostrar_menu()
 
         elif opcion == "5":
             print("💲​MONEDA COLOMBIANA💲​ ")
-            print("✔️ Precios apartir de 10.000")
+            print("✔️ Precios apartir de 10.000 ")
             rango_menor= float(input("➖ ingrese el rango minimo de precio:   "))
             rango_mayor= float(input("➕​ ingrese el rango maximo de precio:  "))
             filtro_rango = op.busqueda_por_rango_de_precios(pro.productos, rango_menor,rango_mayor)
@@ -72,7 +72,7 @@ class Menu:
             self.mostrar_menu()
 
         elif opcion == "x":
-            print("👋 Gracias por visitar Colombia Souvenirs")
+            print("👋 Gracias por visitar Colombia Souvenirs 👋")
             return
           
         else:

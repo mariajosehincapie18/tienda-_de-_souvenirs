@@ -6,7 +6,7 @@ class Producto:
         self.precio:float = precio
 
     def __str__(self):
-        return f"Código: {self.codigo}, Nombre: {self.nombre}, Categoría: {self.categoria}, Precio: {self.precio}"
+        return f"🏷️: {self.codigo}, 📝: {self.nombre}, 🗂️: {self.categoria}, 💰: {self.precio}"
     
     def __repr__(self):
         return str(self)
