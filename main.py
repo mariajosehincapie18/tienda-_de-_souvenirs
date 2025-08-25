@@ -21,6 +21,9 @@ print(calculo_prodctos)
 calculo_promedio = op.calculo_promedio_por_categoria(pro.productos, "souvenir")
 print(calculo_promedio)
 
+quick = op.Quicksort_precio(pro.productos,"menor")
+print("organizacion de menor a mayor ", quick)
+
 
 filtro_rango = op.busqueda_por_rango_de_precios(pro.productos,120,200)
 print(filtro_rango)

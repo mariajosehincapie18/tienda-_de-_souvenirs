@@ -31,12 +31,12 @@ class Operaciones():
         
     def calculo_total_de_precios(self, productos, index = 0, total_productos =0):
         if productos is None:
-            return
+            return 0 
         if index == len(productos):
             return total_productos
         
-        producto_atual = productos[index].precio
-        total_productos = producto_atual + total_productos
+        producto_actual = productos[index].precio
+        total_productos = producto_actual + total_productos
         return self.calculo_total_de_precios(productos,index +1, total_productos)
     
     def calculo_promedio_por_categoria(self, productos,categoria,  index = 0, cont = 0, suma_productos = 0):
@@ -44,14 +44,50 @@ class Operaciones():
             return 0
         
         if index == len(productos):
-            return (suma_productos//cont)
+            return (suma_productos//cont) if cont > 0 else 0
         
         if productos[index].categoria.lower() == categoria.lower():
-            cont = +1
+            cont = cont + 1
             suma_productos = productos[index].precio + suma_productos
         
         return self.calculo_promedio_por_categoria(productos,categoria, index +1, cont, suma_productos)
     
+
+
+    def Quicksort_precio(self, productos, organizacion, index =1 , ele_izq = None, ele_der = None):
+        if ele_izq  is None:
+           ele_izq = []
+
+        if ele_der is None:
+            ele_der = []
+
+        if productos is None or  len(productos) <= 1:
+           return productos
+        
+        inicio = productos[0]
+
+        if index == len (productos):
+            izq_ordenado = self.Quicksort_precio(ele_izq, organizacion)
+            der_ordenado = self.Quicksort_precio(ele_der, organizacion)
+
+            if organizacion.lower() == "mayor":
+                return der_ordenado + [inicio]+ izq_ordenado
+           
+            elif organizacion.lower() == "menor":
+                return izq_ordenado + [inicio] + der_ordenado
+
+            else:
+                return "tipo de organizacion no valida"
+        
+
+        if productos[index].precio < inicio.precio:
+            ele_izq.append(productos[index])
+        else:
+            ele_der.append(productos[index])
+        
+        return self.Quicksort_precio(productos, organizacion, index +1, ele_izq, ele_der)
+
+         
 
     def busqueda_por_rango_de_precios(self, productos,minimo, maximo , index=0, resultado = None):
         if resultado is None:
