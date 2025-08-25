@@ -23,7 +23,7 @@ class Menu:
             producto_buscar = input("🔎 INGRESE EL PROUCTO QUE DESEA BUSCAR:  ")
             resultado =op.busqueda_binaria_por_nombre(pro.productos, producto_buscar.lower())
             if resultado:
-                print(resultado) 
+                op.imprimir_lista(resultado) 
             else:
                 print("⚠️​No se encontraron elementos")         
             
@@ -36,7 +36,7 @@ class Menu:
 
         elif opcion == "3":
             print("🔎 ingresa la categoria para consultar el promedio:")
-            categoria = input("'Artesania', 'souvenirs', 'ropa', 'accesorio':  ")
+            categoria = input("'Artesania', 'souvenir', 'ropa', 'accesorio':  ")
             calculo_promedio = op.calculo_promedio_por_categoria(pro.productos, categoria.lower())
             print("TOTAL: 💲​", calculo_promedio)
             self.mostrar_menu()
@@ -50,23 +50,26 @@ class Menu:
         elif opcion == "5":
             print("💲​MONEDA COLOMBIANA💲​ ")
             print("✔️ Precios apartir de 10.000")
-            rango_menor= int(input("➖ ingrese el rango minimo de precio:   "))
-            rango_mayor= int(input("➕​ ingrese el rango maximo de precio:  "))
+            rango_menor= float(input("➖ ingrese el rango minimo de precio:   "))
+            rango_mayor= float(input("➕​ ingrese el rango maximo de precio:  "))
             filtro_rango = op.busqueda_por_rango_de_precios(pro.productos, rango_menor,rango_mayor)
-            print(filtro_rango)
+            print(f"✔️  PRODUCTOS DESDE 💲​{rango_menor} HASTA 💲​{rango_mayor}: ")
+            op.imprimir_lista(filtro_rango)
 
             self.mostrar_menu()
         elif opcion == "6":
             producto_seleccionado = input("ingrese el nombre del producto:  ")
             reco = op.recomendaciones(pro.productos,producto_seleccionado.lower())
-            print("💡​ recomendaciones:  ",reco)
+            print("💡​ recomendaciones:  ")
+            op.imprimir_lista(reco)
           
             self.mostrar_menu()
 
         elif opcion == "7":
             print("\n🔎 Resultados encontrados:")
             pro.mostrar_productos()
-        
+
+            self.mostrar_menu()
 
         elif opcion == "x":
             print("👋 Gracias por visitar Colombia Souvenirs")

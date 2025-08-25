@@ -122,6 +122,13 @@ class Operaciones():
 
         return self.recomendaciones(productos,nombre_producto,index +1,  producto_seleccionado, recomendaciones)
     
+
+    def imprimir_lista(self, productos, index=0):
+        if not productos or index == len(productos):
+            return
+        print(productos[index])   
+        self.imprimir_lista(productos, index + 1)
+    
  
         
         
