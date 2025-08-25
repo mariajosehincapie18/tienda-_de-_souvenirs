@@ -121,7 +121,8 @@ class Operaciones():
             recomendaciones.append(productos[index])
 
         return self.recomendaciones(productos,nombre_producto,index +1,  producto_seleccionado, recomendaciones)
-
+    
+ 
         
         
         

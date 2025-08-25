@@ -2,34 +2,93 @@ from producto import Producto
 from producto import GestorProductos
 from operaciones import Operaciones
 
+
+class Menu:
+    def mostrar_menu(self):
+        print("\n--- BIENVENIDO A COLOMBIA SOUVENIRS ---")
+        print("1️⃣   BUSQUEDA POR NOMBRE")
+        print("2️⃣   CALCULO TOTAL DE PRODUCTOS")
+        print("3️⃣   CALCULO PROMEDIO POR CATEGORIA ")
+        print("4️⃣   QUICKSORT")
+        print("5️⃣   BUSQUEDA POR RANGO DE PRECIOS")
+        print("6️⃣   RECOMENDACIONES ")
+        print("7️⃣   LISTADO DE PRODUCTOS ORGANIZADOS ALFABETICAMENTE")
+
+        print("❌ SALIR")
+
+
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            producto_buscar = input("🔎 INGRESE EL PROUCTO QUE DESEA BUSCAR:  ")
+            resultado =op.busqueda_binaria_por_nombre(pro.productos, producto_buscar.lower())
+            if resultado:
+                print(resultado) 
+            else:
+                print("⚠️​No se encontraron elementos")         
+            
+            self.mostrar_menu()   
+
+        elif opcion == "2":
+            calculo_prodctos = op.calculo_total_de_precios(pro.productos)
+            print("TOTAL: 💲​ ", calculo_prodctos)
+            self.mostrar_menu()   
+
+        elif opcion == "3":
+            print("🔎 ingresa la categoria para consultar el promedio:")
+            categoria = input("'Artesania', 'souvenirs', 'ropa', 'accesorio':  ")
+            calculo_promedio = op.calculo_promedio_por_categoria(pro.productos, categoria.lower())
+            print("TOTAL: 💲​", calculo_promedio)
+            self.mostrar_menu()
+
+        elif opcion == "4": 
+            opcion =input("🔎 Ingresa el orden que quieres tus productos 'menor' o 'mayor':  ")   
+            quick = op.Quicksort_precio(pro.productos,opcion.lower())
+            print(quick)    
+            self.mostrar_menu()
+
+        elif opcion == "5":
+            print("💲​MONEDA COLOMBIANA💲​ ")
+            print("✔️ Precios apartir de 10.000")
+            rango_menor= int(input("➖ ingrese el rango minimo de precio:   "))
+            rango_mayor= int(input("➕​ ingrese el rango maximo de precio:  "))
+            filtro_rango = op.busqueda_por_rango_de_precios(pro.productos, rango_menor,rango_mayor)
+            print(filtro_rango)
+
+            self.mostrar_menu()
+        elif opcion == "6":
+            producto_seleccionado = input("ingrese el nombre del producto:  ")
+            reco = op.recomendaciones(pro.productos,producto_seleccionado.lower())
+            print("💡​ recomendaciones:  ",reco)
+          
+            self.mostrar_menu()
+
+        elif opcion == "7":
+            print("\n🔎 Resultados encontrados:")
+            pro.mostrar_productos()
+        
+
+        elif opcion == "x":
+            print("👋 Gracias por visitar Colombia Souvenirs")
+            return
+          
+        else:
+            print("❌ Opción inválida, intente de nuevo.")
+            self.mostrar_menu() 
+
+
+
+
+
 pro = GestorProductos()
 pro.precargar_productos_desde_txt("productos.txt")
-pro.mostrar_productos()
 op = Operaciones()
-resultado =op.busqueda_binaria_por_nombre(pro.productos,"Taza cafetera")
-if resultado:
-    print("\n🔎 Resultados encontrados:")
-    print(resultado) 
-
-else:
-    print("\n❌ No se encontraron coincidencias.")
+menu =Menu ()
+menu.mostrar_menu()
 
 
-calculo_prodctos = op.calculo_total_de_precios(pro.productos)
-print(calculo_prodctos)
-
-calculo_promedio = op.calculo_promedio_por_categoria(pro.productos, "souvenir")
-print(calculo_promedio)
-
-quick = op.Quicksort_precio(pro.productos,"menor")
-print("organizacion de menor a mayor ", quick)
 
 
-filtro_rango = op.busqueda_por_rango_de_precios(pro.productos,120,200)
-print(filtro_rango)
 
-
-reco = op.recomendaciones(pro.productos,"pin",)
-print("recomendaciones: ",reco)
 
 

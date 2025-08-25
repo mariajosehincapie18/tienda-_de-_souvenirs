@@ -1,17 +1,17 @@
-art-im,iman Medellí,artesania, 100
-ro-som,Sombrero Vueltiado,ropa,152
-acc-bo,Botella Guaté,accesorio,200
-ro-cacol,Camiseta Colombia,ropa,250
-art-bol,BolsoWayuu,artesania,300
-acc-ll,Llaveros de cafetera,accesorio,152
-s-tc,Taza cafetera,souvenir,120
-art-co,Collar artesal,artesania,50
-ro-ruboy,Ruana boyacence,ropa,25
-s-mch,Miniatura chiva,souvenir,100
-s-p,pin Colombia,souvenir,200
-art-tp,Taza pintada a mano ,artesania,500
-s-tm,Taza Medellí,souvenir,600
-art-cp,Collar perlas,artesania,15
-art-ce,Collar esmeralda,artesanía,300
+art-im,iman Medellí,artesania, 10000
+ro-som,Sombrero Vueltiado,ropa,100000
+acc-bo,Botella Guaté,accesorio,20000
+ro-cacol,Camiseta Colombia,ropa,70000
+art-bol,BolsoWayuu,artesania,300000
+acc-ll,Llaveros de cafetera,accesorio,15000
+s-tc,Taza cafetera,souvenir,30000
+art-co,Collar artesal,artesania,350000
+ro-ruboy,Ruana boyacence,ropa,250000
+s-mch,Miniatura chiva,souvenir,10000
+s-p,pin Colombia,souvenir,10000
+art-tp,Taza pintada a mano ,artesania,30000
+s-tm,Taza Medellí,souvenir,30000
+art-cp,Collar perlas,artesania,150000
+art-ce,Collar esmeralda,artesanía,400000
 
 
